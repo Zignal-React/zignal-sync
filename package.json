@@ -1,0 +1,45 @@
+{
+  "name": "@zignal/sync",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "description": "Sync plugin for Zignal signal stores (BroadcastChannel/localStorage)",
+  "keywords": [
+    "react",
+    "signals",
+    "store",
+    "state",
+    "preact",
+    "zignal",
+    "sync"
+  ],
+  "author": "Thinh.Nguyen",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@zignal/core": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react": "^7.37.5",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.36.0",
+    "vite": "^7.0.3",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "sideEffects": false
+}
