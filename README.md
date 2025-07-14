@@ -1,6 +1,11 @@
 # @zignal/sync
 
-Sync zignal state across browser tabs/windows using either BroadcastChannel or localStorage.
+[![npm version](https://img.shields.io/npm/v/@zignal/sync.svg)](https://www.npmjs.com/package/@zignal/sync)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@zignal/sync)](https://bundlephobia.com/result?p=@zignal/sync)
+[![npm downloads](https://img.shields.io/npm/dm/@zignal/sync.svg)](https://www.npmjs.com/package/@zignal/sync)
+
+Sync plugin for [@zignal/core](https://github.com/Zignal-React/zignal-core) signal stores. Adds cross-tab sync via BroadcastChannel or localStorage to your state.
 
 ## Features
 - Keeps your zignal store in sync across all open tabs/windows

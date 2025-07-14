@@ -2,8 +2,6 @@
   "name": "@zignal/sync",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "type": "module",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -20,14 +18,13 @@
   ],
   "author": "Thinh.Nguyen",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "vite build",
-    "lint": "eslint src"
+    "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
-    "@zignal/core": "*"
-  },
-  "peerDependencies": {
+    "@zignal/core": "*",
     "react": ">=18.0.0"
   },
   "devDependencies": {
@@ -36,6 +33,7 @@
     "@typescript-eslint/parser": "^8.36.0",
     "eslint": "^9.30.1",
     "eslint-plugin-react": "^7.37.5",
+    "terser": "^5.43.1",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.36.0",
     "vite": "^7.0.3",
