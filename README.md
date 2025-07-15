@@ -9,7 +9,7 @@ Sync plugin for [@zignal/core](https://github.com/Zignal-React/zignal-core) sign
 
 ## Features
 - Keeps your zignal store in sync across all open tabs/windows
-- Choose between real-time sync (BroadcastChannel) or storage-based sync (localStorage)
+- Uses real-time sync (BroadcastChannel) by default, or storage-based sync (localStorage) as a fallback
 - Simple API, works with any zignal store
 - Lightweight and dependency-free (except React)
 
@@ -27,16 +27,12 @@ npm install @zignal/sync
 
 ```tsx
 import { createZignal } from '@zignal/core';
-import { syncZignal } from '@zignal/sync';
+import { broadcast } from '@zignal/sync';
 
-const counter = createZignal(0);
+const useCounter = broadcast(createZignal(0), { key: 'counter' });
 
 export function Counter() {
-  // Use BroadcastChannel for real-time sync (if supported)
-  syncZignal(counter, 'counter', { strategy: 'broadcast' });
-  // Or use localStorage (default)
-  // syncZignal(counter, 'counter');
-  const [count, setCount] = counter();
+  const [count, setCount] = useCounter();
   return (
     <>
       <span>Count: {count}</span>
@@ -48,15 +44,15 @@ export function Counter() {
 
 ## API
 
-### `syncZignal<T>(zignal, key, options?)`
+### `broadcast<T>(zignal, options?)`
 - `zignal`: A zignal store (from `createZignal`)
-- `key`: The sync key (used for BroadcastChannel or localStorage)
-- `options.strategy`: `'broadcast' | 'storage'` (default: `'storage'`)
+- `options.key`: The sync key (used for BroadcastChannel or localStorage)
+- `options.strategy`: `'broadcast' | 'storage'` (default: `'broadcast'`)
   - `'broadcast'`: Uses [BroadcastChannel API](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel) for real-time tab sync (falls back to localStorage if not supported)
   - `'storage'`: Uses localStorage and the storage event for sync
 
 ## Fallback Behavior
-If you choose `'broadcast'` but the browser does not support it, `syncZignal` will automatically fall back to using localStorage.
+If you choose `'broadcast'` but the browser does not support it, `broadcast` will automatically fall back to using localStorage.
 
 ## License
 MIT 
