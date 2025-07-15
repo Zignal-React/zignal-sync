@@ -6,6 +6,7 @@ export type SyncStrategy = 'broadcast' | 'storage';
 let syncId = 0;
 
 export function broadcast<T>(
+	// eslint-disable-next-line
 	zignal: { store: ZignalStore<T> } & (() => [T, (v: T) => void]),
 	options?: { key?: string; strategy?: SyncStrategy }
 ) {
